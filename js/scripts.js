@@ -1,6 +1,6 @@
 const net = new brain.NeuralNetwork({
   activation: 'sigmoid', // activation function
-  hiddenLayers: [4],
+  hiddenLayers: [6],
   learningRate: 0.6 // global learning rate, useful when training using streams
 });
 
@@ -36,7 +36,7 @@ for (var i = 0; i < 13400; i++) {
 }
 
 for (var i = 0; i < 100; i++) {
-  var ageOutput = ageNet.run({ age: i/100 });
+  var ageOutput = ageNet.run({ age: i });
   console.log("Age: " + i);
   console.log(ageOutput);
 }
@@ -47,7 +47,7 @@ console.log("EDUCATION: ");
 var yearsEducationNet = new brain.NeuralNetwork();
 
 for (var i = 0; i < 13400; i++) {
-  tempInput = incomeDataset[i][4]/16;
+  tempInput = incomeDataset[i][4];
   tempOutput = incomeDataset[i][14];
   if (tempOutput == "<=50K") {
     tempOutput = 1;
@@ -63,7 +63,8 @@ for (var i = 0; i < 13400; i++) {
 }
 
 for (var i = 1; i < 16; i++) {
-  var yearsEducationOutput = yearsEducationNet.run({ yearsEducation: i/16 });
+  var yearsEducationOutput = yearsEducationNet.run({ yearsEducation: i });
+  console.log(i + " Year(s) of Education: ");
   console.log(yearsEducationOutput);
 }
 
@@ -73,7 +74,7 @@ console.log("HOURS WORKED PER WEEK: ");
 var weeklyHoursNet = new brain.NeuralNetwork();
 
 for (var i = 0; i < 13400; i++) {
-  tempInput = incomeDataset[i][12]/60;
+  tempInput = incomeDataset[i][12];
   tempOutput = incomeDataset[i][14];
   if (tempOutput == "<=50K") {
     tempOutput = 1;
@@ -88,8 +89,9 @@ for (var i = 0; i < 13400; i++) {
   }
 }
 
-for (var i = 1; i < 60; i++) {
-  var weeklyHoursOutput = weeklyHoursNet.run({ weeklyHours: i/60 });
+for (var i = 0; i < 60; i+=5) {
+  var weeklyHoursOutput = weeklyHoursNet.run({ weeklyHours: i });
+  console.log(i + " Hours: ");
   console.log(weeklyHoursOutput);
 }
 
@@ -123,4 +125,35 @@ for (var i = 0; i < 13400; i++) {
 for (var i = 0; i < 2; i++) {
   var genderOutput = genderNet.run({ gender: i });
   console.log(genderOutput);
+}
+
+
+// YEARS OF EDUCATION AND HOURS PER WEEK TO INCOME ML
+console.log("EDUCATION: ");
+
+var educationWeeklyHoursNet = new brain.NeuralNetwork();
+
+for (var i = 0; i < 13400; i++) {
+  tempInputEducation = incomeDataset[i][4];
+  tempInputWeeklyHours = incomeDataset[i][12];
+  tempOutput = incomeDataset[i][14];
+  if (tempOutput == "<=50K") {
+    tempOutput = 1;
+    educationWeeklyHoursNet.train([
+      { input: {yearsEducation: tempInputEducation, weeklyHours: tempInputWeeklyHours}, output: { lessthan50K: tempOutput } }
+    ]);
+  } else {
+    tempOutput = 1;
+    educationWeeklyHoursNet.train([
+      { input: {yearsEducation: tempInputEducation, weeklyHours: tempInputWeeklyHours}, output: { morethan50K: tempOutput }}
+    ]);
+  }
+}
+
+for (var i = 0; i < 16; i++) {
+  for (var j = 0; j < 60; j+=5) {
+    var educationWeeklyHoursOutput = educationWeeklyHoursNet.run({ yearsEducation: i, weeklyHours: j });
+    console.log(i + " Year(s) of Education, " + j + " Hours per Week :");
+    console.log(educationWeeklyHoursOutput);
+  }
 }
