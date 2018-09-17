@@ -1,18 +1,7 @@
 const net = new brain.NeuralNetwork({
   activation: 'sigmoid', // activation function
-  hiddenLayers: [6],
   learningRate: 0.6 // global learning rate, useful when training using streams
 });
-
-// var testNet = new brain.recurrent.LSTM();
-//
-// testNet.train([
-//   { input: "13", output: "<=50K" },
-//   { input: "11", output: ">50K" }
-// ]);
-//
-// var output = testNet.run("13");
-// console.log(output);
 
 // AGE TO INCOME ML
 console.log("AGE: ");
