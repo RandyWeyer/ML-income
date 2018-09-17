@@ -6,8 +6,8 @@
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/jquery-3.3.1.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="https://unpkg.com/brain.js@1.0.0-rc.3/browser.js"></script>
-  <script src="mushroomDataset.js"></script>
+  <script src="js/brain.js"></script>
+  <script src="incomeDataset.js"></script>
   <script src="js/scripts.js"></script>
   <title>ML Income</title>
 </head>
@@ -16,140 +16,153 @@
   <div className="jumbotron">
 
   </div>
-  <label>Age</label>
-  <input type="number" min="0" max="125">
+  <div class="container">
+    <label>Age</label>
+    <input type="number" min="0" max="125">
+    <br/>
 
-  <label>Work Class</label>
-  <select>
-    <option value="">Private Corporation</option>
-    <option value="">Self-Employed(Not Incorporated)</option>
-    <option value="">Self-Employed(Incorporated)</option>
-    <option value="">Federal Government</option>
-    <option value="">Local Government</option>
-    <option value="">Without Pay</option>
-  </select>
+    <label>Work Class</label>
+    <select>
+      <option value="">Private Corporation</option>
+      <option value="">Self-Employed(Not Incorporated)</option>
+      <option value="">Self-Employed(Incorporated)</option>
+      <option value="">Federal Government</option>
+      <option value="">Local Government</option>
+      <option value="">Without Pay</option>
+    </select>
+    <br/>
 
-  <label>Highest Level of Education</label>
-  <select>
-    <option value="">Preschool</option>
-    <option value="">1st-4th</option>
-    <option value="">5th-6th</option>
-    <option value="">7th-8th</option>
-    <option value="">9th</option>
-    <option value="">10th</option>
-    <option value="">11th</option>
-    <option value="">12th</option>
-    <option value="">HS Grad</option>
-    <option value="">Some College</option>
-    <option value="">Associates (academic)</option>
-    <option value="">Associates (vocational)</option>
-    <option value="">Bachelors</option>
-    <option value="">Prof-School</option>
-    <option value="">Masters</option>
-    <option value="">Doctorate</option>
-  </select>
+    <label>Highest Level of Education</label>
+    <select>
+      <option value="">Preschool</option>
+      <option value="">1st-4th</option>
+      <option value="">5th-6th</option>
+      <option value="">7th-8th</option>
+      <option value="">9th</option>
+      <option value="">10th</option>
+      <option value="">11th</option>
+      <option value="">12th</option>
+      <option value="">HS Grad</option>
+      <option value="">Some College</option>
+      <option value="">Associates (academic)</option>
+      <option value="">Associates (vocational)</option>
+      <option value="">Bachelors</option>
+      <option value="">Prof-School</option>
+      <option value="">Masters</option>
+      <option value="">Doctorate</option>
+    </select>
+    <br/>
 
-  <label>Marital Status</label>
-  <select>
-    <option value="">Married Civil/Union</option>
-    <option value="">Divorced</option>
-    <option value="">Never Married</option>
-    <option value="">Seperated</option>
-    <option value="">Widowed</option>
-    <option value="">Married(Spouse Absent)</option>
-    <option value="">Married(Away from Spouse)</option>
-  </select>
+    <label>Marital Status</label>
+    <select>
+      <option value="">Married Civil/Union</option>
+      <option value="">Divorced</option>
+      <option value="">Never Married</option>
+      <option value="">Seperated</option>
+      <option value="">Widowed</option>
+      <option value="">Married(Spouse Absent)</option>
+      <option value="">Married(Away from Spouse)</option>
+    </select>
+    <br/>
 
-  <label>Occupation</label>
-  <select>
-    <option value="">Tech-support</option>
-    <option value="">Craft-repair</option>
-    <option value="">Other-service</option>
-    <option value="">Sales</option>
-    <option value="">Exec-managerial</option>
-    <option value="">Prof-specialty</option>
-    <option value="">Handlers-cleaners</option>
-    <option value="">Machine-op-inspct</option>
-    <option value="">Adm-clerical</option>
-    <option value="">Farming-fishing</option>
-    <option value="">Transport-moving</option>
-    <option value="">Priv-house-serv</option>
-    <option value="">Protective-serv</option>
-    <option value="">Armed-Forces</option>
-  </select>
+    <label>Occupation</label>
+    <select>
+      <option value="">Tech-support</option>
+      <option value="">Craft-repair</option>
+      <option value="">Other-service</option>
+      <option value="">Sales</option>
+      <option value="">Exec-managerial</option>
+      <option value="">Prof-specialty</option>
+      <option value="">Handlers-cleaners</option>
+      <option value="">Machine-op-inspct</option>
+      <option value="">Adm-clerical</option>
+      <option value="">Farming-fishing</option>
+      <option value="">Transport-moving</option>
+      <option value="">Priv-house-serv</option>
+      <option value="">Protective-serv</option>
+      <option value="">Armed-Forces</option>
+    </select>
+    <br/>
 
-  <label>Relationship</label>
-  <select>
-    <option value="">Wife</option>
-    <option value="">Own-child</option>
-    <option value="">Husband</option>
-    <option value="">Not-in-family</option>
-    <option value="">Other-Relative</option>
-    <option value="">Unmarried</option>
-  </select>
+    <label>Relationship</label>
+    <select>
+      <option value="">Wife</option>
+      <option value="">Own-child</option>
+      <option value="">Husband</option>
+      <option value="">Not-in-family</option>
+      <option value="">Other-Relative</option>
+      <option value="">Unmarried</option>
+    </select>
+    <br/>
 
-  <label>Race</label>
-  <select>
-    <option value="">American Indian/ Eskimo</option>
-    <option value="">Asian/Pacific Islands</option>
-    <option value="">Black</option>
-    <option value="">White</option>
-    <option value="">Other</option>
-  </select>
+    <label>Race</label>
+    <select>
+      <option value="">American Indian/ Eskimo</option>
+      <option value="">Asian/Pacific Islands</option>
+      <option value="">Black</option>
+      <option value="">White</option>
+      <option value="">Other</option>
+    </select>
+    <br/>
 
-  <label>Sex</label>
-  <select>
-    <option value="">Male</option>
-    <option value="">Female</option>
-  </select>
+    <label>Sex</label>
+    <select>
+      <option value="">Male</option>
+      <option value="">Female</option>
+    </select>
+    <br/>
 
-  <label>Hours Worked per Week</label>
-  <input type="number" min="0" max="150">
+    <label>Hours Worked per Week</label>
+    <input type="number" min="0" max="150">
+    <br/>
 
-  <label>Native Country</label>
-  <select>
-    <option value="">Cambodia</option>
-    <option value="">Canada</option>
-    <option value="">China</option>
-    <option value="">Columbia</option>
-    <option value="">Cuba</option>
-    <option value="">Dominican-Republic</option>
-    <option value="">Ecuador</option>
-    <option value="">El-Salvador</option>
-    <option value="">England</option>
-    <option value="">France</option>
-    <option value="">Germany</option>
-    <option value="">Greece</option>
-    <option value="">Guatemala</option>
-    <option value="">Haiti</option>
-    <option value="">Honduras</option>
-    <option value="">Hong Kong</option>
-    <option value="">Hungary</option>
-    <option value="">India</option>
-    <option value="">Iran</option>
-    <option value="">Ireland</option>
-    <option value="">Italy</option>
-    <option value="">Jamaica</option>
-    <option value="">Japan</option>
-    <option value="">Laos</option>
-    <option value="">Netherlands</option>
-    <option value="">Nicaragua</option>
-    <option value="">Mexico</option>
-    <option value="">Peru</option>
-    <option value="">Phillippines</option>
-    <option value="">Poland</option>
-    <option value="">Portugal</option>
-    <option value="">Puerto-Rico</option>
-    <option value="">Scotland</option>
-    <option value="">South Korea</option>
-    <option value="">Taiwan</option>
-    <option value="">Thailand</option>
-    <option value="">Trinidad & Tobago</option>
-    <option value="">United States</option>
-    <option value="">United States(Non-incorporated)</option>
-    <option value="">Vietnam</option>
-    <option value="">Yugoslavia</option>
-  </select>
+    <label>Native Country</label>
+    <select>
+      <option value="">Cambodia</option>
+      <option value="">Canada</option>
+      <option value="">China</option>
+      <option value="">Columbia</option>
+      <option value="">Cuba</option>
+      <option value="">Dominican-Republic</option>
+      <option value="">Ecuador</option>
+      <option value="">El-Salvador</option>
+      <option value="">England</option>
+      <option value="">France</option>
+      <option value="">Germany</option>
+      <option value="">Greece</option>
+      <option value="">Guatemala</option>
+      <option value="">Haiti</option>
+      <option value="">Honduras</option>
+      <option value="">Hong Kong</option>
+      <option value="">Hungary</option>
+      <option value="">India</option>
+      <option value="">Iran</option>
+      <option value="">Ireland</option>
+      <option value="">Italy</option>
+      <option value="">Jamaica</option>
+      <option value="">Japan</option>
+      <option value="">Laos</option>
+      <option value="">Netherlands</option>
+      <option value="">Nicaragua</option>
+      <option value="">Mexico</option>
+      <option value="">Peru</option>
+      <option value="">Phillippines</option>
+      <option value="">Poland</option>
+      <option value="">Portugal</option>
+      <option value="">Puerto-Rico</option>
+      <option value="">Scotland</option>
+      <option value="">South Korea</option>
+      <option value="">Taiwan</option>
+      <option value="">Thailand</option>
+      <option value="">Trinidad & Tobago</option>
+      <option value="">United States</option>
+      <option value="">United States(Non-incorporated)</option>
+      <option value="">Vietnam</option>
+      <option value="">Yugoslavia</option>
+    </select>
+    <br/>
+  </div>
+  <!-- End of Container -->
 
 </body>
 </html>
